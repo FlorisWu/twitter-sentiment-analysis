@@ -21,7 +21,7 @@ The model is developed by [Jeremy Howard](https://twitter.com/jeremyphoward), a 
 To train the model, I ran Jeremy's [code](https://github.com/fastai/fastai/blob/master/courses/dl1/lesson4-imdb.ipynb) line by line on paperspace. His model was trained by a [large movie review dataset](http://ai.stanford.edu/~amaas/data/sentiment/) containing 50,000 reviews from IMDB. 
 
 ## Predicting each tweet's sentiment (Python)
-```Python
+```python
 # loading required packages
 %reload_ext autoreload
 %autoreload 2
