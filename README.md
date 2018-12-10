@@ -135,7 +135,8 @@ plt.xticks(month,
           ['Dec 2017', 'Jan 2018', 'Feb 2018', 'March 2018', 'April 2018', 'May 2018', 'June 2018', 'July 2018', 'Aug 2018', 'Sept 2018', 'Oct 2018', 'Nov 2018'], fontsize = 16)
 fig.savefig('tweets_over_time.jpg')
 ```
-![ ](https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/positive_tweets.jpg)
+
+<img src="https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/positive_tweets.jpg?raw=true" width="900"/>
 
 In general, the more candidates tweeted, the more votes they got. And Democrats tweeted more and got more votes.
 ```python
@@ -152,7 +153,7 @@ plt.legend(('Democrats', 'Republicans', 'Independents', 'Libertarians'), loc='up
 fig.savefig('tweets_and_votes.jpg')
 ```
 
-![ ](https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/tweets_and_votes.jpg)
+<img src="https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/tweets_and_votes.jpg?raw=true" width="900"/>
 
 In general, the more followers candidates had, the more votes they got. Again, Democrats had more followers and more votes.
 ```python
@@ -168,7 +169,8 @@ plt.xticks(fontsize =25)
 plt.legend(('Democrats', 'Republicans', 'Independents', 'Libertarians'), loc='upper left', fontsize=30)
 fig.savefig('followers_and_votes.jpg')
 ```
-![ ](https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/followers_and_votes.jpg)
+
+<img src="https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/followers_and_votes.jpg?raw=true" width="900"/>
 
 For Democrats, the more positive tweets they had, the less votes they had.
 
@@ -185,5 +187,5 @@ plt.xticks(fontsize =25)
 plt.legend(('Democrats', 'Republicans', 'Independents', 'Libertarians'), loc='lower right', fontsize=16)
 fig.savefig('positives_and_votes.jpg')
 ```
-![ ](https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/positives_and_votes.jpg)
+<img src="https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/positives_and_votes.jpg?raw=true" width="900"/>
 
