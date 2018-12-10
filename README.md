@@ -1,4 +1,4 @@
-# How midterm election candidates tweeted and how that might have affected the results of the election
+# How midterm election candidates (for the Senate) tweeted and how that might have affected the results of the election
 
 During the fall of 2018, as part of my data journalism research for [Storybench](http://www.storybench.org), a "cookbook for digital storytelling" by Northeastern University's School of Journalism, I collected twitter data from 2018 midterm election candidates (with R) to see how it might have affected the results of the election. To better understand the impact of these words, machine learning model was used to predict tweet sentiment, and results are visualized (with Python).
 
@@ -101,4 +101,90 @@ len(negative) #number of negative tweets by each candidate
 ```
 
 ## Visualizing results with matplotlib (Python)
+The closer to the election date, the more candidates tweeted.
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+sns.set()
+
+candidates = pd.read_csv("Updated Candidates.csv")
+percentage_of_positive_tweets = [72.77215502,72.89565754,74.76340694,77.25617934,77.09820567,78.4372093,75.56086797,75.48902875,77.11086923,75.85608332,77.11526349,81.2329108]
+month = [1,2,3,4,5,6,7,8,9,10,11,12]
+fig=plt.figure(figsize=(20,10))
+plt.scatter(month,percentage_of_positive_tweets, s=500)
+plt.ylabel('% of positive tweets from all candidates', fontsize = 25)
+plt.yticks(fontsize =27)
+plt.xlabel('month and year', fontsize=25)
+plt.xticks(month,
+          ['Dec 2017', 'Jan 2018', 'Feb 2018', 'March 2018', 'April 2018', 'May 2018', 'June 2018', 'July 2018', 'Aug 2018', 'Sept 2018', 'Oct 2018', 'Nov 2018'], fontsize = 16)
+fig.savefig('positive_tweets.jpg')
+```
+
+![ ](https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/positive_tweets.jpg)
+
+Candidates were generally more positive as they approached election day.
+
+```python
+fig=plt.figure(figsize=(20,10))
+plt.scatter([1,2,3,4,5,6,7,8,9,10,11,12],[4051,4859,4121,5219,5183,5375,5438,5879,6431,6337,9526,4023], s=500)
+plt.ylabel('number of tweets from all candidates', fontsize = 30)
+plt.xlabel('month and year', fontsize=25)
+plt.yticks(fontsize =27)
+plt.xticks(month,
+          ['Dec 2017', 'Jan 2018', 'Feb 2018', 'March 2018', 'April 2018', 'May 2018', 'June 2018', 'July 2018', 'Aug 2018', 'Sept 2018', 'Oct 2018', 'Nov 2018'], fontsize = 16)
+fig.savefig('tweets_over_time.jpg')
+```
+![ ](https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/tweets_over_time.jpg)
+
+In general, the more candidates tweeted, the more votes they got. And Democrats tweeted more and got more votes.
+```python
+fig=plt.figure(figsize=(20,10))
+plt.scatter(np.log(candidates[candidates['Party (D/R/L/I)'] == 'D']['Total number of tweets']),candidates[candidates['Party (D/R/L/I)'] == 'D']['percentage of vote'], s=500, color='blue')
+plt.scatter(np.log(candidates[candidates['Party (D/R/L/I)'] == 'R']['Total number of tweets']),candidates[candidates['Party (D/R/L/I)'] == 'R']['percentage of vote'], s=500, color='red')
+plt.scatter(np.log(candidates[candidates['Party (D/R/L/I)'] == 'I']['Total number of tweets']),candidates[candidates['Party (D/R/L/I)'] == 'I']['percentage of vote'], s=500, color='purple')
+plt.scatter(np.log(candidates[candidates['Party (D/R/L/I)'] == 'L']['Total number of tweets']),candidates[candidates['Party (D/R/L/I)'] == 'L']['percentage of vote'], s=500, color='yellow')
+plt.ylabel('% of vote', fontsize = 30)
+plt.xlabel('log(number of tweets)', fontsize=25)
+plt.yticks(fontsize =27)
+plt.xticks(fontsize =25)
+plt.legend(('Democrats', 'Republicans', 'Independents', 'Libertarians'), loc='upper left', fontsize=21)
+fig.savefig('tweets_and_votes.jpg')
+```
+
+![ ](https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/tweets_and_votes.jpg)
+
+In general, the more followers candidates had, the more votes they got. Again, Democrats had more followers and more votes.
+```python
+fig=plt.figure(figsize=(20,10))
+plt.scatter(np.log(candidates[candidates['Party (D/R/L/I)'] == 'D']['Follower count']),candidates[candidates['Party (D/R/L/I)'] == 'D']['percentage of vote'], s=500, color='blue')
+plt.scatter(np.log(candidates[candidates['Party (D/R/L/I)'] == 'R']['Follower count']),candidates[candidates['Party (D/R/L/I)'] == 'R']['percentage of vote'], s=500, color='red')
+plt.scatter(np.log(candidates[candidates['Party (D/R/L/I)'] == 'I']['Follower count']),candidates[candidates['Party (D/R/L/I)'] == 'I']['percentage of vote'], s=500, color='purple')
+plt.scatter(np.log(candidates[candidates['Party (D/R/L/I)'] == 'L']['Follower count']),candidates[candidates['Party (D/R/L/I)'] == 'L']['percentage of vote'], s=500, color='yellow')
+plt.ylabel('% of vote', fontsize = 30)
+plt.xlabel('log(number of twitter followers)', fontsize=30)
+plt.yticks(fontsize =27)
+plt.xticks(fontsize =25)
+plt.legend(('Democrats', 'Republicans', 'Independents', 'Libertarians'), loc='upper left', fontsize=30)
+fig.savefig('followers_and_votes.jpg')
+```
+![ ](https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/followers_and_votes.jpg)
+
+For Democrats, the more positive tweets they had, the less votes they had.
+
+```python
+fig=plt.figure(figsize=(20,10))
+plt.scatter(candidates[candidates['Party (D/R/L/I)'] == 'D']['% of positives'],candidates[candidates['Party (D/R/L/I)'] == 'D']['percentage of vote'], s=500, color='blue')
+plt.scatter(candidates[candidates['Party (D/R/L/I)'] == 'R']['% of positives'],candidates[candidates['Party (D/R/L/I)'] == 'R']['percentage of vote'], s=500, color='red')
+plt.scatter(candidates[candidates['Party (D/R/L/I)'] == 'I']['% of positives'],candidates[candidates['Party (D/R/L/I)'] == 'I']['percentage of vote'], s=500, color='purple')
+plt.scatter(candidates[candidates['Party (D/R/L/I)'] == 'L']['% of positives'],candidates[candidates['Party (D/R/L/I)'] == 'L']['percentage of vote'], s=500, color='yellow')
+plt.ylabel('% of vote', fontsize = 30)
+plt.xlabel('% of positive tweets', fontsize=25)
+plt.yticks(fontsize =27)
+plt.xticks(fontsize =25)
+plt.legend(('Democrats', 'Republicans', 'Independents', 'Libertarians'), loc='lower right', fontsize=16)
+fig.savefig('positives_and_votes.jpg')
+```
+![ ](https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/positives_and_votes.jpg)
 
