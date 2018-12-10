@@ -188,4 +188,3 @@ fig.savefig('positives_and_votes.jpg')
 ```
 ![ ](https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/positives_and_votes.jpg)
 
-<img src="https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/positives_and_votes.jpg">
