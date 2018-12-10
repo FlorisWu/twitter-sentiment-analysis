@@ -121,8 +121,7 @@ plt.xticks(month,
           ['Dec 2017', 'Jan 2018', 'Feb 2018', 'March 2018', 'April 2018', 'May 2018', 'June 2018', 'July 2018', 'Aug 2018', 'Sept 2018', 'Oct 2018', 'Nov 2018'], fontsize = 16)
 fig.savefig('positive_tweets.jpg')
 ```
-
-![ ](https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/tweets_over_time.jpg)
+<img src="https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/tweets_over_time.jpg" width="900" alt="SERIAL"/>
 
 Candidates were generally more positive as they approached election day.
 
