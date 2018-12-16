@@ -204,5 +204,5 @@ plt.yticks(fontsize =27)
 plt.xticks(fontsize =25)
 fig.savefig('% of positives and % of vote.jpg')
 ```
-<img src="https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/positives_and_votes.jpg?raw=true" width="900"/>
+<img src="https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/positives__and_votes.jpg?raw=true" width="900"/>
 
