@@ -173,7 +173,7 @@ fig.savefig('followers_and_votes.jpg')
 
 <img src="https://github.com/FlorisWu/twitter-sentiment-analysis/blob/master/followers_and_votes.jpg?raw=true" width="900"/>
 
-For Democrats, the more positive tweets they had, the fewer votes they had.
+For Democrats, the more positive tweets they had, the fewer votes they had. The opposite was true for Republicans.
 
 ```python
 fig=plt.figure(figsize=(20,10))
