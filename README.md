@@ -75,6 +75,8 @@ AllCandidates = pd.read_csv("data/all_tweets.csv")
 
 candidates = [1]*63 # creating 63 lists because I am analysing 63 candidates' tweets; 1 is just a randomly chosen number
 
+names = AllCandidates['screen_name'].unique() #putting all candidates' Twitter handles in "names"
+
 for i in range (0,63):
     candidates[i] = AllCandidates[AllCandidates['screen_name'].str.contains(names[i])] # by doing this, data for each candidate are stored in separate dataframes. For example, candidates[0] stores all data for "SenatorCantwell"; candidates[1] for "Susan4Senate"; candidates[2] for "jontester"...
  
