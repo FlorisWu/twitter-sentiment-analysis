@@ -87,9 +87,9 @@ for i in range(candidate[j].values[:,4].shape[0]): #replace j with 0, 1, 2, 3...
     s = [spacy_tok(ss)] #tokenizing the words
     t = TEXT.numericalize(s) #giving the words a number
     
-    m.eval() #evaluates the probability of positives or negatives
+    m.eval()
     m.reset() #reset it so it can analyze the next tweet
-    res,*_ = m(t) #storing the probability value in res
+    res,*_ = m(t)
     prediction.append(IMDB_LABEL.vocab.itos[to_np(torch.topk(res[-1],1)[1])[0]])
     
     
