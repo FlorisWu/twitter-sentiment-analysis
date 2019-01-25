@@ -84,8 +84,8 @@ for i in range (0,63):
 m = m3.model #this is the model
 m[0].bs=1 #this is the batch size. so, analyzing one tweet at a time
 prediction = []
-for i in range(candidate[j].values[:,4].shape[0]): #replace j with 0, 1, 2, 3...62 for each candidate
-    ss = candidate[j]['text'][i+a] #saving the ith tweet here; replace a with 0 (Cantwell's tweets start here), 3030 (Susan's tweets start here)... 
+for i in range(candidates[j].values[:,4].shape[0]): #replace j with 0, 1, 2, 3...62 for each candidate
+    ss = candidates[j]['text'][i+a] #saving the ith tweet here; replace a with 0 (Cantwell's tweets start here), 3030 (Susan's tweets start here)... 
     s = [spacy_tok(ss)] #tokenizing the words
     t = TEXT.numericalize(s) #giving the words a number
     
