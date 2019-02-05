@@ -193,13 +193,13 @@ plt.scatter(candidates[candidates['Party (D/R/L/I)'] == 'L']['% of positives'],c
 plt.legend(('Democrats', 'Republicans', 'Independents', 'Libertarians'), loc='lower right', fontsize=16)
 slope1, intercept1, r_value1, p_value1, std_err1 = stats.linregress(x1,y1)
 line1 = slope1*x1+intercept1
-plt.plot(x1,y1,'o',x1,line1)
+plt.plot(x1,line1)
 slope2, intercept2, r_value2, p_value2, std_err2 = stats.linregress(x2,y2)
 line2 = slope2*x2+intercept2
-plt.plot(x2,y2,'o',x2,line2)
+plt.plot(x2,line2)
 slope3, intercept3, r_value3, p_value3, std_err3 = stats.linregress(x3,y3)
 line3 = slope3*x3+intercept3
-plt.plot(x3,y3,'o',x3,line3)
+plt.plot(x3,line3)
 plt.ylabel('% of vote', fontsize = 30)
 plt.xlabel('% of positive tweets', fontsize=25)
 plt.yticks(fontsize =27)
