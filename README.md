@@ -1,6 +1,6 @@
-# How midterm election candidates (for the Senate) tweeted and how that might have affected the results of the election
+# Twitter sentiment of midterm election candidates
 
-During the fall of 2018, as part of my data journalism research for [Storybench](http://www.storybench.org), a "cookbook for digital storytelling" by Northeastern University's School of Journalism, I collected Twitter data from 2018 midterm election candidates (with R) to see how it might have affected the results of the election. To better understand the impact of these words, a machine learning model was used to predict tweet sentiment, and results are visualized (with Python).
+During the fall of 2018, as part of my data journalism research for [Storybench](http://www.storybench.org), a "cookbook for digital storytelling" by Northeastern University's School of Journalism, I collected Twitter data from 2018 midterm election candidates (with R) to see the possible correlation between the sentiment of those tweets and election results. To better understand these words, a machine learning model was used to predict tweet sentiment, and results are visualized (with Python) and published [here](https://www.rollcall.com/news/campaigns/lead-midterms-twitter-republicans-went-high-democrats-went-low).
 
 ## Collecting twitter data (R)
 Data were scraped from Twitter with [rtweet](https://rtweet.info), a package developed by [Michael W. Kearney](https://mikewk.com) from the University of Missouri. Data are either from twitter accounts of candidate themselves or their official campaign accounts.
